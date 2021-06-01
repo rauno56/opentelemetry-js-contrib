@@ -230,20 +230,21 @@ export class MySQLInstrumentation extends InstrumentationBase<
       diag.debug('MySQLInstrumentation: patched mysql query');
 
       return function query(
+        this: mysqlTypes.Connection | mysqlTypes.Pool,
         query: string | mysqlTypes.Query | mysqlTypes.QueryOptions,
         _valuesOrCallback?: unknown[] | mysqlTypes.queryCallback,
         _callback?: mysqlTypes.queryCallback
       ) {
         if (!thisPlugin['_enabled']) {
           thisPlugin._unwrap(connection, 'query');
-          return originalQuery.apply(connection, arguments);
+          return originalQuery.apply(this, arguments);
         }
 
         const span = thisPlugin.tracer.startSpan(getSpanName(query), {
           kind: SpanKind.CLIENT,
           attributes: {
             ...MySQLInstrumentation.COMMON_ATTRIBUTES,
-            ...getConnectionAttributes(connection.config),
+            ...getConnectionAttributes(this.config),
           },
         });
 
@@ -262,7 +263,7 @@ export class MySQLInstrumentation extends InstrumentationBase<
 
         if (arguments.length === 1) {
           const streamableQuery: mysqlTypes.Query = originalQuery.apply(
-            connection,
+            this,
             arguments
           );
 
@@ -284,7 +285,7 @@ export class MySQLInstrumentation extends InstrumentationBase<
           thisPlugin._wrap(arguments, 2, thisPlugin._patchCallbackQuery(span));
         }
 
-        return originalQuery.apply(connection, arguments);
+        return originalQuery.apply(this, arguments);
       };
     };
   }
