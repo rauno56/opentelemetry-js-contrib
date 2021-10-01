@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@opentelemetry/api": "1.0.2",
-    "@opentelemetry/context-async-hooks": "0.24.0",
+    "@opentelemetry/context-async-hooks": "1.0.0",
     "@opentelemetry/node": "0.24.0",
     "@opentelemetry/test-utils": "^0.24.0",
     "@opentelemetry/tracing": "0.24.0",
@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@opentelemetry/instrumentation": "^0.24.0",
-    "@opentelemetry/semantic-conventions": "^0.24.0",
+    "@opentelemetry/semantic-conventions": "^1.0.0",
     "@types/pg": "8.6.1",
     "@types/pg-pool": "2.0.3"
   }

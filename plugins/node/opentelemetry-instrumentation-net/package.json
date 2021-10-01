@@ -63,6 +63,6 @@
   },
   "dependencies": {
     "@opentelemetry/instrumentation": "^0.24.0",
-    "@opentelemetry/semantic-conventions": "^0.24.0"
+    "@opentelemetry/semantic-conventions": "^1.0.0"
   }
 }
