@@ -123,6 +123,17 @@ jobs:
         run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
       - name: Unit tests
         run: npm run test:ci:changed -- ${{ matrix.lerna-extra-args }}
+        continue-on-error: true
+      - name: Debug
+        if: ${{ always() }}
+        run: |
+          docker ps;
+          docker stats --no-stream;
+          getent hosts redis;
+          getent hosts cassandra;
+          getent hosts mysql;
+          getent hosts postgres;
+          getent hosts mongo;
       - name: Report Coverage
         if: matrix.node == '14'
         run: npm run codecov:ci:changed
