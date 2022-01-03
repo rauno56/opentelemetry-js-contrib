@@ -16,6 +16,8 @@ jobs:
               --ignore @opentelemetry/instrumentation-aws-sdk
               --ignore @opentelemetry/instrumentation-pino
               --ignore @opentelemetry/instrumentation-tedious
+              --ignore @opentelemetry/instrumentation-mysql
+              --ignore @opentelemetry/instrumentation-mysql2
           - node: "10"
             lerna-extra-args: >-
               --ignore @opentelemetry/instrumentation-pino
@@ -29,20 +31,20 @@ jobs:
         image: mongo
         ports:
         - 27017:27017
-      mysql:
-        image: circleci/mysql:5.7
-        env:
-          MYSQL_USER: otel
-          MYSQL_PASSWORD: secret
-          MYSQL_DATABASE: circle_database
-          MYSQL_ROOT_PASSWORD: rootpw
-        ports:
-        - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+      # mysql:
+      #   image: circleci/mysql:5.7
+      #   env:
+      #     MYSQL_USER: otel
+      #     MYSQL_PASSWORD: secret
+      #     MYSQL_DATABASE: circle_database
+      #     MYSQL_ROOT_PASSWORD: rootpw
+      #   ports:
+      #   - 3306:3306
+      #   options: >-
+      #     --health-cmd="mysqladmin ping"
+      #     --health-interval 10s
+      #     --health-timeout 5s
+      #     --health-retries 5
       postgres:
         image: circleci/postgres:9.6-alpine
         env:
@@ -97,6 +99,7 @@ jobs:
       CASSANDRA_HOST: cassandra
       CASSANDRA_PORT: 9042
     steps:
+      - run: docker ps
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -104,6 +107,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - run: docker ps
       - name: Cache Dependencies
         uses: actions/cache@v2
         with:
@@ -122,9 +126,11 @@ jobs:
         run: npm config set legacy-peer-deps=true
       - name: Install Root Dependencies
         run: npm install --ignore-scripts
+      - run: docker ps
       - name: Bootstrap Dependencies
         run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
       - name: Unit tests
+      - run: docker ps
         run: npm run test:ci:changed -- ${{ env.LERNA_SELECTOR }} ${{ matrix.lerna-extra-args }}
       - name: Report Coverage
         if: matrix.node == '14'
