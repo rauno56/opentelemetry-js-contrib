@@ -22,12 +22,12 @@ jobs:
     services:
       memcached:
         image: memcached:1.6.9-alpine
-        ports:
-        - 11211:11211
+        # ports:
+        # - 11211:11211
       mongo:
         image: mongo
-        ports:
-        - 27017:27017
+        # ports:
+        # - 27017:27017
       # mysql:
       #   image: circleci/mysql:5.7
       #   env:
@@ -56,8 +56,8 @@ jobs:
           --health-retries 5
       redis:
         image: redis
-        ports:
-        - 6379:6379
+        # ports:
+        # - 6379:6379
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -73,6 +73,7 @@ jobs:
         --ignore @opentelemetry/instrumentation-mysql
         --ignore @opentelemetry/instrumentation-mysql2
         --ignore @opentelemetry/instrumentation-cassandra-driver
+        --scope @opentelemetry/instrumentation-ioredis
       RUN_CASSANDRA_TESTS: 1
       RUN_MEMCACHED_TESTS: 1
       RUN_MONGODB_TESTS: 1
@@ -128,7 +129,7 @@ jobs:
         run: npm install --ignore-scripts
       - run: docker ps
       - name: Bootstrap Dependencies
-        run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
+        run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha' ${{ env.LERNA_SELECTOR }} ${{ matrix.lerna-extra-args }}
       - run: docker ps
       - name: Unit tests
         run: npm run test:ci:changed -- ${{ env.LERNA_SELECTOR }} ${{ matrix.lerna-extra-args }}
