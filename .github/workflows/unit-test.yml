@@ -73,7 +73,6 @@ jobs:
         --ignore @opentelemetry/instrumentation-mysql
         --ignore @opentelemetry/instrumentation-mysql2
         --ignore @opentelemetry/instrumentation-cassandra-driver
-        --scope @opentelemetry/instrumentation-ioredis
       RUN_CASSANDRA_TESTS: 1
       RUN_MEMCACHED_TESTS: 1
       RUN_MONGODB_TESTS: 1
