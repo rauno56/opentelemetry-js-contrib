@@ -118,7 +118,13 @@ describe('CassandraDriverInstrumentation', () => {
   let client: CassandraDriver.Client;
   let instrumentation: CassandraDriverInstrumentation;
 
-  before(async function () {
+  before(async function (): Promise<void> {
+    console.error(
+      'testCassandra',
+      testCassandra,
+      testCassandraLocally,
+      shouldTest
+    );
     if (!shouldTest) {
       return this.skip();
     }
