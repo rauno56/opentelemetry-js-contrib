@@ -21,6 +21,7 @@
     "version:update": "node ../../../scripts/version-update.js"
   },
   "keywords": [
+    "ci",
     "opentelemetry",
     "memcached",
     "nodejs",

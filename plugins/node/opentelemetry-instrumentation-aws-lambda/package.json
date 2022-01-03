@@ -19,6 +19,7 @@
     "compile": "npm run version:update && tsc -p ."
   },
   "keywords": [
+    "ci",
     "opentelemetry",
     "aws-lambda",
     "nodejs",
