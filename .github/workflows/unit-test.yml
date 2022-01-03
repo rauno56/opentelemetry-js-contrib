@@ -15,10 +15,6 @@ jobs:
             lerna-extra-args: >-
               --ignore @opentelemetry/instrumentation-aws-sdk
               --ignore @opentelemetry/instrumentation-pino
-              --ignore @opentelemetry/instrumentation-tedious
-              --ignore @opentelemetry/instrumentation-mysql
-              --ignore @opentelemetry/instrumentation-mysql2
-              --ignore @opentelemetry/instrumentation-cassandra-driver
           - node: "10"
             lerna-extra-args: >-
               --ignore @opentelemetry/instrumentation-pino
@@ -74,6 +70,9 @@ jobs:
     env:
       LERNA_SELECTOR: >-
         --ignore @opentelemetry/instrumentation-tedious
+        --ignore @opentelemetry/instrumentation-mysql
+        --ignore @opentelemetry/instrumentation-mysql2
+        --ignore @opentelemetry/instrumentation-cassandra-driver
       RUN_CASSANDRA_TESTS: 1
       RUN_MEMCACHED_TESTS: 1
       RUN_MONGODB_TESTS: 1
