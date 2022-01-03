@@ -120,7 +120,7 @@ describe('CassandraDriverInstrumentation', () => {
 
   before(async function () {
     if (!shouldTest) {
-      this.skip();
+      return this.skip();
     }
 
     // Cassandra takes a long time to boot up - 20 seconds easily.
@@ -162,7 +162,9 @@ describe('CassandraDriverInstrumentation', () => {
 
   after(async function () {
     this.timeout(60000);
-    await client.shutdown();
+    if (client) {
+      await client.shutdown();
+    }
     if (testCassandraLocally) {
       testUtils.cleanUpDocker('cassandra');
     }
