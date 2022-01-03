@@ -1,3 +1,0 @@
-mongodb:
-  versions: ">=3.3 <4"
-  commands: npm run test
