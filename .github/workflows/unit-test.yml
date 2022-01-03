@@ -18,6 +18,7 @@ jobs:
               --ignore @opentelemetry/instrumentation-tedious
               --ignore @opentelemetry/instrumentation-mysql
               --ignore @opentelemetry/instrumentation-mysql2
+              --ignore @opentelemetry/instrumentation-cassandra-driver
           - node: "10"
             lerna-extra-args: >-
               --ignore @opentelemetry/instrumentation-pino
@@ -66,10 +67,10 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      cassandra:
-        image: bitnami/cassandra:3
-        ports:
-        - 9042:9042
+      # cassandra:
+      #   image: bitnami/cassandra:3
+      #   ports:
+      #   - 9042:9042
     env:
       LERNA_SELECTOR: >-
         --ignore @opentelemetry/instrumentation-tedious
@@ -129,8 +130,8 @@ jobs:
       - run: docker ps
       - name: Bootstrap Dependencies
         run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
-      - name: Unit tests
       - run: docker ps
+      - name: Unit tests
         run: npm run test:ci:changed -- ${{ env.LERNA_SELECTOR }} ${{ matrix.lerna-extra-args }}
       - name: Report Coverage
         if: matrix.node == '14'
