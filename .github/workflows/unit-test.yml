@@ -113,7 +113,7 @@ jobs:
       - name: Bootstrap Dependencies
         run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha' --scope @opentelemetry/instrumentation-mongodb
       - name: Unit tests
-        run: npm run test:ci:changed -- ${{ matrix.lerna-extra-args }}
+        run: npm run test:ci:changed -- ${{ matrix.lerna-extra-args }} --stream
       - name: Report Coverage
         if: matrix.node == '14'
         run: npm run codecov:ci:changed
