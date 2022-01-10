@@ -172,6 +172,6 @@ jobs:
       - name: Bootstrap Dependencies
         run: npx lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
       - name: Unit tests
-        run: npm run test:browser
+        run: npm run test:browser -- --stream
       - name: Report Coverage
         run: npm run codecov:browser
