@@ -15,12 +15,11 @@
  */
 
 import type { Logger as Winston3Logger } from 'winston';
-import type {
-  LoggerInstance as Winston2Logger,
-  LogMethod as Winston2LogMethod,
-} from 'winston2';
 export type Winston3LogMethod = Winston3Logger['write'];
 export type { Winston3Logger };
+
+type Winston2LogMethod = any;
+type Winston2Logger = any;
 
 export type { Winston2LogMethod };
 export type Winston2LoggerModule = {

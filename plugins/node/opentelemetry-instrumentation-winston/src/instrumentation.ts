@@ -177,7 +177,7 @@ export class WinstonInstrumentation extends InstrumentationBase {
 
         for (let i = args.length - 1; i >= 0; i--) {
           if (typeof args[i] === 'object') {
-            const record = args[i];
+            const record = args[i] as any;
             injectRecord(spanContext, record);
             instrumentation._callHook(span, record);
             return original.apply(this, args);
