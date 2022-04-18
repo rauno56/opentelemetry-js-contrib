@@ -16,7 +16,7 @@
    * path segment in the "$schema" field for all your Rush config files.  This will ensure
    * correct error-underlining and tab-completion for editors such as VS Code.
    */
-  "rushVersion": "5.64.0",
+  "rushVersion": "5.66.2",
 
   /**
    * The next field selects which package manager should be installed and determines its version.
@@ -28,7 +28,7 @@
    */
   // "pnpmVersion": "6.32.4",
 
-  "npmVersion": "8.6.0",
+  "npmVersion": "6.14.16",
   // "yarnVersion": "1.9.4",
 
   /**
@@ -76,7 +76,7 @@
      * After modifying this field, it's recommended to run "rush update --full" so that the package manager
      * will recalculate all version selections.
      */
-    "resolutionStrategy": "fewer-dependencies",
+    // "resolutionStrategy": "fewer-dependencies",
 
     /**
      * If true, then `rush install` will report an error if manual modifications

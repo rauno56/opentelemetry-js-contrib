@@ -42,6 +42,6 @@ LICENSE*                text
 # Don't allow people to merge changes to these generated files, because the result
 # may be invalid.  You need to run "rush update" again.
 pnpm-lock.yaml               binary merge=text
-shrinkwrap.yaml              merge=binary
-npm-shrinkwrap.json          merge=binary
+shrinkwrap.yaml              binary merge=binary
+npm-shrinkwrap.json          binary merge=binary
 yarn.lock                    merge=binary
