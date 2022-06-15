@@ -26,6 +26,7 @@ jobs:
               --ignore @opentelemetry/instrumentation-mongodb
           - node: "10"
             lerna-extra-args: >-
+              --ignore @opentelemetry/instrumentation-aws-sdk
               --ignore @opentelemetry/instrumentation-pino
               --ignore @opentelemetry/instrumentation-mongodb
     runs-on: ubuntu-latest
@@ -133,7 +134,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             node_modules
