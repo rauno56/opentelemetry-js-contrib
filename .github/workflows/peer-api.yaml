@@ -16,7 +16,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install lerna
-        run: npm install -g lerna
+        run: |
+          npm install -g lerna || (
+            npx lerna info;
+            cat lerna-debug.log;
+          )
 
       - name: Install script dependencies
         run: npm install
