@@ -17,10 +17,8 @@ jobs:
 
       - name: Install lerna
         run: |
-          npm install -g lerna || (
-            npx lerna info;
-            cat lerna-debug.log;
-          )
+          npx lerna info;
+          npm install -g lerna;
 
       - name: Install script dependencies
         run: npm install
