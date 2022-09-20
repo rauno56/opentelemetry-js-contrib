@@ -6,9 +6,10 @@ on:
       - synchronize
       - reopened
       - labeled
+      - unlabeled
 
 jobs:
-  parse-args:
+  parse-labels:
     runs-on: ubuntu-latest
     container:
       image: node:16
@@ -31,7 +32,7 @@ jobs:
 
   tav:
     uses: ./.github/workflows/test-all-versions.yml
-    needs: parse-args
+    needs: parse-labels
     with:
-      lerna-args: ${{ needs.parse-args.outputs.args }}
-    if: ${{ needs.parse-args.outputs.args != '' }}
+      lerna-args: ${{ needs.parse-labels.outputs.args }}
+    if: ${{ needs.parse-labels.outputs.args != '' }}
