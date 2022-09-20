@@ -1,0 +1,15 @@
+name: Test All Versions(Push)
+on:
+  push:
+    branches:
+      - "main"
+      - "release/**"
+      - "release-please/**"
+
+jobs:
+  tav:
+    uses: ./.github/workflows/test-all-versions.yml
+    with:
+      # testing, change to empty string before merging
+      lerna-args: >-
+        --scope @opentelemetry/instrumentation-pino

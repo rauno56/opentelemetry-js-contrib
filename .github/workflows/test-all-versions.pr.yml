@@ -1,0 +1,15 @@
+name: Test All Versions(PR)
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+
+jobs:
+  tav:
+    uses: ./.github/workflows/test-all-versions.yml
+    with:
+      lerna-args: >-
+        --scope @opentelemetry/instrumentation-pino
