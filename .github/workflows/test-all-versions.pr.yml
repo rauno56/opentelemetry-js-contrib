@@ -25,7 +25,7 @@ jobs:
       #   run: npm install --ignore-scripts
       - name: Check API dependency semantics
         id: lerna-args
-        run: echo "::set-output name=args::$(node scripts/parse-lerna-scope.js "$PR_LABELS")"
+        run: echo "::set-output name=args::$(node scripts/parse-lerna-scopes.mjs "$PR_LABELS")"
 
   tav:
     uses: ./.github/workflows/test-all-versions.yml

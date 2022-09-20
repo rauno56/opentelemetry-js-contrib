@@ -10,6 +10,4 @@ jobs:
   tav:
     uses: ./.github/workflows/test-all-versions.yml
     with:
-      # testing, change to empty string before merging
-      lerna-args: >-
-        --scope @opentelemetry/instrumentation-pino
+      lerna-args: ""
