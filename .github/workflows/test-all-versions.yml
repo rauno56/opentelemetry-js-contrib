@@ -126,6 +126,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+      - name: Display lerna args
+        run: echo ${{ inputs.lerna-args }} ${{ matrix.lerna-extra-args }}
       - name: Cache Dependencies
         uses: actions/cache@v3
         with:
@@ -150,7 +152,9 @@ jobs:
         run: npm config set legacy-peer-deps=true
       - name: Install Root Dependencies
         run: npm install --ignore-scripts
-      - name: Bootstrap Dependencies
-        run: lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
-      - name: Run test-all-versions
-        run: lerna run test-all-versions ${{ inputs.lerna-args }} ${{ matrix.lerna-extra-args }} --stream --concurrency 1
+      - name: Run some command
+        run: lerna run version:update ${{ inputs.lerna-args }} ${{ matrix.lerna-extra-args }} --stream --concurrency 1
+      # - name: Bootstrap Dependencies
+      #   run: lerna bootstrap --no-ci --hoist --nohoist='zone.js' --nohoist='mocha' --nohoist='ts-mocha'
+      # - name: Run test-all-versions
+      #   run: lerna run test-all-versions ${{ inputs.lerna-args }} ${{ matrix.lerna-extra-args }} --stream --concurrency 1
