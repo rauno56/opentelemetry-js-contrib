@@ -32,3 +32,4 @@ jobs:
     needs: parse-args
     with:
       lerna-args: ${{ needs.parse-args.outputs.args }}
+    if: ${{ needs.parse-args.outputs.args != '' }}
