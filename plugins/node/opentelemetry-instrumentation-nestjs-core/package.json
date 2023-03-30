@@ -45,34 +45,34 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@opentelemetry/api": "^1.3.0"
+    "@opentelemetry/api": "^1.4.1"
   },
   "devDependencies": {
-    "@nestjs/common": "8.2.6",
-    "@nestjs/core": "8.2.6",
-    "@nestjs/microservices": "8.2.6",
-    "@nestjs/platform-express": "8.2.6",
-    "@nestjs/websockets": "8.2.6",
-    "@opentelemetry/api": "^1.3.0",
+    "@nestjs/common": "8.4.7",
+    "@nestjs/core": "8.4.7",
+    "@nestjs/microservices": "8.4.7",
+    "@nestjs/platform-express": "8.4.7",
+    "@nestjs/websockets": "8.4.7",
+    "@opentelemetry/api": "^1.4.1",
     "@opentelemetry/context-async-hooks": "^1.8.0",
     "@opentelemetry/sdk-trace-base": "^1.8.0",
     "@opentelemetry/sdk-trace-node": "^1.8.0",
     "@types/mocha": "7.0.2",
-    "@types/node": "18.11.7",
-    "@types/semver": "7.3.8",
+    "@types/node": "18.15.11",
+    "@types/semver": "7.3.13",
     "@types/vinyl-fs": "2.4.12",
     "cross-env": "7.0.3",
-    "gts": "3.1.0",
+    "gts": "3.1.1",
     "mocha": "7.2.0",
     "nyc": "15.1.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "7.3.0",
+    "rxjs": "7.8.0",
     "rxjs-compat": "6.6.7",
-    "semver": "7.3.5",
+    "semver": "7.3.8",
     "test-all-versions": "5.0.1",
     "ts-mocha": "10.0.0",
-    "typescript": "4.3.5"
+    "typescript": "4.9.5"
   },
   "dependencies": {
     "@opentelemetry/instrumentation": "^0.34.0",
