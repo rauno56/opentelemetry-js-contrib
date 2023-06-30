@@ -31,7 +31,7 @@
     "url": "https://github.com/open-telemetry/opentelemetry-js-contrib/issues"
   },
   "dependencies": {
-    "@hapi/hapi": "^19.2.0",
+    "@hapi/hapi": "^21.0.0",
     "@opentelemetry/api": "^1.0.2",
     "@opentelemetry/exporter-jaeger": "^0.25.0",
     "@opentelemetry/exporter-zipkin": "^0.25.0",
