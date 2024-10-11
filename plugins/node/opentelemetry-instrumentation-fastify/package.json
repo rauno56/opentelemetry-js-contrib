@@ -51,7 +51,7 @@
     "@opentelemetry/instrumentation-http": "0.35.1",
     "@opentelemetry/sdk-trace-base": "^1.8.0",
     "@opentelemetry/sdk-trace-node": "^1.8.0",
-    "@types/express": "4.17.13",
+    "@types/express": "5.0.0",
     "@types/mocha": "7.0.2",
     "@types/node": "18.11.7",
     "fastify": "^4.5.3",
