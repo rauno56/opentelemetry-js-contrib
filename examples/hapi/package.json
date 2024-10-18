@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/open-telemetry/opentelemetry-js-contrib#readme",
   "devDependencies": {
-    "cross-env": "^6.0.0",
+    "cross-env": "^7.0.0",
     "eslint": "^7.4.0"
   }
 }
