@@ -34,14 +34,14 @@
     "identity-obj-proxy": "^3.0.0",
     "preact-cli": "^3.0.0",
     "preact-render-spy": "^1.2.1",
-    "sirv-cli": "1.0.3"
+    "sirv-cli": "1.0.14"
   },
   "dependencies": {
-    "@opentelemetry/context-zone": "^0.25.0",
+    "@opentelemetry/context-zone": "^0.26.0",
     "@opentelemetry/exporter-collector": "^0.25.0",
-    "@opentelemetry/plugin-react-load": "^0.23.0",
-    "@opentelemetry/sdk-trace-base": "^0.25.0",
-    "@opentelemetry/sdk-trace-web": "^0.25.0",
+    "@opentelemetry/plugin-react-load": "^0.31.0",
+    "@opentelemetry/sdk-trace-base": "^0.26.0",
+    "@opentelemetry/sdk-trace-web": "^0.26.0",
     "preact": "^10.3.2",
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1"
